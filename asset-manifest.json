@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/git-goblin/static/css/main.3c9f3978.css",
+    "main.js": "/git-goblin/static/js/main.7755d5c6.js",
+    "static/js/453.640d5b44.chunk.js": "/git-goblin/static/js/453.640d5b44.chunk.js",
+    "index.html": "/git-goblin/index.html",
+    "main.3c9f3978.css.map": "/git-goblin/static/css/main.3c9f3978.css.map",
+    "main.7755d5c6.js.map": "/git-goblin/static/js/main.7755d5c6.js.map",
+    "453.640d5b44.chunk.js.map": "/git-goblin/static/js/453.640d5b44.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c9f3978.css",
+    "static/js/main.7755d5c6.js"
+  ]
+}
