@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
-import Footer from './components/footer';
-import Filters from './components/filters';
-import RepositoryCard from './components/RepositoryCard'; // Ensure this import is correct
+import Footer from './components/Footer';
+import Filters from './components/Filters';
+import RepositoryCard from './components/RepositoryCard';
 
 function App() {
-  const [repositories, setRepositories] = useState([]); // Define repositories here
+  const [repositories, setRepositories] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // Fetch repositories data from an API or your source
   useEffect(() => {
     const fetchRepositories = async () => {
       try {
-        // Replace with your actual API endpoint
-        const response = await fetch('https://api.github.com/repositories');
+        setLoading(true);
+        const response = await fetch('https://api.github.com/repositories?per_page=5'); // Adjust per_page for pagination
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setRepositories(data.slice(0, 5)); // For demonstration, showing only first 5
+        setRepositories(data);
+        setError(null); // Clear previous errors
       } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error);
+        setError('There has been a problem with your fetch operation: ' + error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchRepositories();
   }, []);
-
-
-  
 
   return (
     <div className="App bg-primary">
@@ -43,12 +45,14 @@ function App() {
       </div>
       <Filters />
       <div className="p-6">
+        {loading && <p className="text-center text-white">Loading...</p>}
+        {error && <p className="text-center text-red-500">{error}</p>}
         {repositories.length > 0 ? (
           repositories.map((repo) => (
             <RepositoryCard key={repo.id} repository={repo} />
           ))
         ) : (
-          <p className="text-center text-white">No repositories found.</p>
+          !loading && <p className="text-center text-white">No repositories found.</p>
         )}
       </div>
       <Footer />

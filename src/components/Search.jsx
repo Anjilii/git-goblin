@@ -1,6 +1,6 @@
 // src/components/Search.jsx
 import React from 'react';
-import { FaSearch } from 'react-icons/fa'; // Import the search icon from react-icons
+import { FaSearch } from 'react-icons/fa'; 
 
 const Search = () => {
     return (

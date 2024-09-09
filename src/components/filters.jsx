@@ -1,12 +1,12 @@
 // src/components/Filters.jsx
 import React, { useState } from 'react';
-import Dropdown from './dropdown'; // Import the Dropdown component
+import Dropdown from './dropdown'; 
 
 const filters = [
   { id: 'stars', title: 'Stars', options: ['1 star', '2 stars', '3 stars', '4 stars', '5 stars', '10 stars', '50 stars'] },
   { id: 'forks', title: 'Forks', options: ['0 forks', '10 forks', '50 forks', '100 forks', '500 forks', '1000 forks'] },
   { id: 'language', title: 'Language', options: ['JavaScript', 'Python', 'Java', 'C++', 'Ruby', 'Go', 'TypeScript', 'PHP'] },
-  { id: 'date', title: 'Date', options: [] }, // Special handling for date input
+  { id: 'date', title: 'Date', options: [] }, 
   { id: 'license', title: 'License', options: ['MIT', 'GPL', 'Apache', 'BSD', 'Creative Commons', 'Unlicense', 'Mozilla Public License', 'Eclipse Public License'] },
 ];
 
